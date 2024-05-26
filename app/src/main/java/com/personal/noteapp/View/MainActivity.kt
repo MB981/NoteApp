@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -80,6 +81,11 @@ class MainActivity : AppCompatActivity() {
                     if (resultCode == RESULT_OK && data != null) {
                         val noteTitle: String = data.getStringExtra("title").toString()
                         val noteDescription: String = data.getStringExtra("description").toString()
+
+                        Log.e(
+                            "NOTE_DESCRIPTION",
+                            "registerActivityResultLanucher: description ->" + noteDescription
+                        )
 //                Adding to the database
                         val note = Note(noteTitle, noteDescription)
                         noteViewModel.insert(note)
@@ -102,7 +108,6 @@ class MainActivity : AppCompatActivity() {
                         val newNote = Note(updatedTitle, updatedDescription)
                         newNote.id = noteId
                         noteViewModel.update(newNote)
-
 
 
                     }

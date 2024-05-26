@@ -24,7 +24,7 @@ class NoteAddActivity : AppCompatActivity() {
 
     fun saveNote() {
         val noteTitle: String = mBinding.etTitle.text.toString()
-        val noteDescription: String = mBinding.etTitle.text.toString()
+        val noteDescription: String = mBinding.etDescription.text.toString()
 
         val intent = Intent()
         intent.putExtra("title", noteTitle)
